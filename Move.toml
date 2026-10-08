@@ -1,0 +1,16 @@
+[package]
+name = "usdc_reserve"
+version = "0.1.0"
+
+[addresses]
+usdc_reserve = "_"
+legacy_usdc = "_"
+backing_usdc = "_"
+
+[dev-addresses]
+usdc_reserve = "0x5e5e"
+legacy_usdc = "0xe0e9394b24e53775d6af87934ac02d73536ad58b7894f6ccff3f5e7c0d548e55"
+backing_usdc = "0xed4aede44bd700d6d6143a203b2e92e0875eb6949999927cb4445dadfb9502a6"
+
+[dependencies]
+InitiaStdlib = { git = "https://github.com/initia-labs/movevm.git", subdir = "precompile/modules/initia_stdlib", rev = "v1.2.0" }
