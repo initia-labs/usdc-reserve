@@ -4,7 +4,7 @@ reserve contract on initia l1 that backs the existing USDC.n token with USDC.inj
 
 - `issue` mints into the vault and the minted USDC.n only leaves through `wrap`, 1:1 against USDC.inj, so it never circulates unbacked
 - the funder pays with `wrap` after the vote, so nothing needs refunding if the vote fails. anyone can fund and the vault ends up the same whoever does
-- `legacy_balance + backing_balance == total_issued` in `get_reserve_info` after any sequence of `redeem` and `wrap`
+- `legacy_balance + backing_balance >= total_issued` in `get_reserve_info`, equal unless someone transfers tokens straight to the vault address
 - the vault is an object owned by `@0x0` so no key can withdraw from it directly, funds only move through the contract (or a gov proposal acting as the vault address)
 - `issue` is gov only (sudo_mint needs the 0x1 signer). `set_redeemable` is gov or the publisher, so the publisher can enable or disable `redeem` but can't mint
 - the package is `COMPATIBLE`, so the publisher (and gov) can upgrade it, including how vault funds move
